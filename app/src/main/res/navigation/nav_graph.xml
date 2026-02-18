@@ -10,4 +10,9 @@
         android:name="com.example.bmicalculatorwithmvvm.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.bmicalculatorwithmvvm.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 </navigation>
