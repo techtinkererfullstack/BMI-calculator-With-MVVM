@@ -1,0 +1,58 @@
+- fragment is lighter than activity
+- android recommend only 1 activity
+- space utilize
+- page navigation
+- code reuse
+- fragment can be attached to any activity
+- navigation meaning each screen switch
+- destination mean each screen
+
+
+# what is fragment
+    -represents a behavior or portion of the UI in an activity ("microactivity"
+    -must be hosted in an activity
+    -lyfecycle tied to host activity's lifecycle
+    -can be added or removed at runtime
+
+# fragment lifecycle diagram
+    Fragment is added -> onAttach() -> onCreate() -> onViewCreated() -> OnStart() - onResume() ->
+    Fragment is Active ->onPause()-> onStop()->onDestryView()->onDestroy()->onDetach()->Fragment is Destroyed
+
+# Summary of fragment states
+    Initialized - onAttach() - fragment is attached to host
+    Created - onCreate(),onCreateView(),onViewCreated() - Fragment is created and layout is being initialized
+    Started - onStart() - Fragment is started and visible
+    Resumed - onResume() - Fragment has input focus
+    Paused - onPause() - Fragment no longer has input focus
+    stopped - onStop() - Fragment is not visible
+    Destryed - onDestroyView(), onDestroy(), onDetach() - fragment is removed from host
+
+# navigation component
+    -navigation component is a collection of libraries a tooling, including an integrated editor, for creating navigation paths through an app
+    -assumes one Activity per graph with many Fragment destinations
+    -consist of three major parts:
+        -- Navigation Graph
+        -- Navigation Host (NavHost)
+        -- Navigation Controller (NavController)
+
+# Add Dependency in build.gradle
+dependency:
+implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+main activity will host all navigation fragment
+#<fragment
+    android:id="@+id/nav_host"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/nav_graph_name"/>
+
+New resource type located in res/navigation directory
+-XML file containing all of your navigation destinations and actions
+-Lists all the (Fragment/Activity) destinations that can be navigated to
+-lists the associated actions to traverse between them
+-optionally lists animations for entering or exiting
+
+
+
+
