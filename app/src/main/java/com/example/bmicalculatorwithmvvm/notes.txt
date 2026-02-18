@@ -7,6 +7,7 @@
 - navigation meaning each screen switch
 - destination mean each screen
 
+- palatte->container->NavHostFragment->drop to framelayout->select NavGraph -ok
 
 # what is fragment
     -represents a behavior or portion of the UI in an activity ("microactivity"
