@@ -76,7 +76,7 @@ ACTIVITY -> VIEW MODEL (Live Datas) -> REPOSITORY -> MODEL(ROOM)/REMOTE DATE SOU
     -survives as long as the scope is alive
     ** when activity destroyed then view model scope is cleared otherwise always stays active
 
-
+** if 2 fragment show different data in that case we should use completely separate viewmodel for both fragments
 
 
 
