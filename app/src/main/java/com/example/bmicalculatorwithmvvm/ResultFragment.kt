@@ -6,29 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.bmicalculatorwithmvvm.databinding.FragmentResultBinding
+import com.example.bmicalculatorwithmvvm.viewmodels.BmiViewModel
 
 class ResultFragment : Fragment() {
   private lateinit var binding: FragmentResultBinding
+  private lateinit var viewModel: BmiViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this).get(BmiViewModel::class.java)
         binding = FragmentResultBinding.inflate(layoutInflater)
-        val bmi = arguments?.getDouble("bmi")
+//        no need to get bundle data after view model implementation
+//        val bmi = arguments?.getDouble("bmi")
 //        bmiScoreTV.text = bmi.toString()
-        binding.bmiResult.text = String.format("%.1f", bmi) // to show only 1 decimal after .
+        binding.bmiResult.text = String.format("%.1f", viewModel.bmi) // to show only 1 decimal after .
 
-        val category = when (String.format("%.1f", bmi).toDouble()) {
-            in 0.0..18.4 -> underweitht
-            in 18.5..24.9 -> normal
-            in 25.0..29.9 -> overweight
-            in 30.0..34.9 -> obisity1
-            in 30.0..34.9 -> obisity2
-            else -> obisity3
-        }
 
-        binding.categoryTV.text = category
+
+        binding.categoryTV.text = viewModel.category
 
         return binding.root
 
