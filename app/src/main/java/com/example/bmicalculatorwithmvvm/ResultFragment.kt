@@ -18,6 +18,9 @@ class ResultFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_result, container, false)
         bmiScoreTV = view.findViewById(R.id.bmiResult)
         categoryTV = view.findViewById(R.id.categoryTV)
+        val bmi = arguments?.getDouble("bmi")
+//        bmiScoreTV.text = bmi.toString()
+        bmiScoreTV.text = String.format("%.1f", bmi) // to show only 1 decimal after .
         return view
     }
 

@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 
 class HomeFragment : Fragment() {
@@ -25,7 +28,10 @@ class HomeFragment : Fragment() {
             val weight= weightET.text.toString().toDouble()
             val height= heightET.text.toString().toDouble()
 
-
+            val bmi = weight/(height*height)
+            //Toast.makeText(activity, bmi.toString(), Toast.LENGTH_SHORT).show()
+            val bundle = bundleOf("bmi" to bmi)
+            findNavController().navigate(R.id.resultAction, bundle)
         }
 
         return view
