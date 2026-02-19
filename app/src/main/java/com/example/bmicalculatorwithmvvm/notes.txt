@@ -55,5 +55,10 @@ New resource type located in res/navigation directory
 -optionally lists animations for entering or exiting
 
 
+#data binding library
+-remove broiler plate code of find vew by id manually
+-
+
+
 
 

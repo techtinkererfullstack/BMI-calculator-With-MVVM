@@ -3,6 +3,11 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        viewBinding = true
+    }
+
+
     namespace = "com.example.bmicalculatorwithmvvm"
     compileSdk {
         version = release(36) {
