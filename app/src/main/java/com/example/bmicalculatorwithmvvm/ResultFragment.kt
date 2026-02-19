@@ -6,20 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.bmicalculatorwithmvvm.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment() {
-    private lateinit var bmiScoreTV: TextView
-    private lateinit var categoryTV: TextView
+  private lateinit var binding: FragmentResultBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_result, container, false)
-        bmiScoreTV = view.findViewById(R.id.bmiResult)
-        categoryTV = view.findViewById(R.id.categoryTV)
+        binding = FragmentResultBinding.inflate(layoutInflater)
         val bmi = arguments?.getDouble("bmi")
 //        bmiScoreTV.text = bmi.toString()
-        bmiScoreTV.text = String.format("%.1f", bmi) // to show only 1 decimal after .
+        binding.bmiResult.text = String.format("%.1f", bmi) // to show only 1 decimal after .
 
         val category = when (String.format("%.1f", bmi).toDouble()) {
             in 0.0..18.4 -> underweitht
@@ -30,9 +28,9 @@ class ResultFragment : Fragment() {
             else -> obisity3
         }
 
-        categoryTV.text = category
+        binding.categoryTV.text = category
 
-        return view
+        return binding.root
 
     }
 
