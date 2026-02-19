@@ -18,7 +18,8 @@ class ResultFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(BmiViewModel::class.java)
+//        home fragment data is not showing in result fragment that is why we need small change
+        viewModel = ViewModelProvider(requireActivity()).get(BmiViewModel::class.java)
         binding = FragmentResultBinding.inflate(layoutInflater)
 //        no need to get bundle data after view model implementation
 //        val bmi = arguments?.getDouble("bmi")

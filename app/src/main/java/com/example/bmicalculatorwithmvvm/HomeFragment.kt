@@ -26,7 +26,8 @@ class HomeFragment : Fragment() {
 //        initializing view binding
         binding = FragmentHomeBinding.inflate(layoutInflater)
 //        initializing view model, here this is Home fragment
-        viewModel = ViewModelProvider(this).get(BmiViewModel::class.java)
+        //        home fragment data is not showing in result fragment that is why we need small change
+        viewModel = ViewModelProvider(requireActivity()).get(BmiViewModel::class.java)
 
 
         binding.calculateBTN.setOnClickListener { v->
