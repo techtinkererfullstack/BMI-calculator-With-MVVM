@@ -55,9 +55,28 @@ New resource type located in res/navigation directory
 -optionally lists animations for entering or exiting
 
 
-#data binding library
+#Data binding library
 -remove broiler plate code of find vew by id manually
--
+- there have other useful functionality of viewbinding library other than this
+
+#Model View ViewModel
+-preferred architectural pattern for android
+-serrates ui from business logic
+-Life-cycle aware - saves states during configuration change
+
+ACTIVITY -> VIEW MODEL (Live Datas) -> REPOSITORY -> MODEL(ROOM)/REMOTE DATE SOURCE(RETROFIT) -> sqlite/web server
+   1                2                        3
+ View          ViewModel                   Model
+
+2. VIEW MODEL
+    -prepare data for the ui
+    -must not reference activity, fragment, or views in view hierarchy
+    -scoped to a lifecycle (which activity and fragment have)
+    -enables data to survive configuration changes
+    -survives as long as the scope is alive
+    ** when activity destroyed then view model scope is cleared otherwise always stays active
+
+
 
 
 
