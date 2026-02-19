@@ -38,7 +38,14 @@ class HomeFragment : Fragment() {
             //Toast.makeText(activity, bmi.toString(), Toast.LENGTH_SHORT).show()
 //            bundle is not needed after implementing view model because bmi is now in view model class
 //            val bundle = bundleOf("bmi" to bmi)
-            findNavController().navigate(R.id.resultAction)
+
+
+//            testing safe argument
+//            val bundle = bundleOf("greet" to "Hello")
+            val action = HomeFragmentDirections.resultAction()
+            action.greet = "hello"
+//            findNavController().navigate(R.id.resultAction, bundle)
+            findNavController().navigate(action) // safe arg example
         }
 
         return binding.root

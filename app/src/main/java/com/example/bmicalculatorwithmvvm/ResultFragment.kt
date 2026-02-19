@@ -21,6 +21,8 @@ class ResultFragment : Fragment() {
         binding = FragmentResultBinding.inflate(layoutInflater)
 //        no need to get bundle data after view model implementation
 //        val bmi = arguments?.getDouble("bmi")
+//        val greet = arguments?.getString("greet") //if we dont pass same and same data type we will not get value using bundle
+        val greet = ResultFragmentArgs.fromBundle(arguments).greet
 //        bmiScoreTV.text = bmi.toString()
 
 //        setting observer
